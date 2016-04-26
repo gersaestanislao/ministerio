@@ -2,15 +2,10 @@
       <!--Intro and service-->
         <div id="intro" class="section scrollspy">
             <div class="container">
-                <div class="row">
+                <div class="row servicios">
                     <div  class="col s12">
-                        <?php if( have_rows('our') ): ?>
-                        <?php while( have_rows('our') ): the_row(); 
-                        // vars producto
-                        $descript = get_sub_field('descript');
-                        ?>
-                        <div class="center header text_h2">
-                           <?php echo $descript; ?>
+                      <div class="center header text_h2">
+                        <?php the_field('our'); ?>
                       </div>
                     </div>
                     <?php if( have_rows('service') ): ?>
@@ -19,23 +14,23 @@
                      $icon = get_sub_field('icon');
                      $title = get_sub_field('title');
                      $descript = get_sub_field('descript');
-                      ?>
-                        <div  class="col s12 m4 l4">
-                            <div class="center promo promo-example">
-                                <i class="mdi-social-group"></i>
-                                <h5 class="promo-caption">Servicio Social</h5>
-                                <p class="light center">240 horas días sábados, todas las Licenciaturas</p>
-                            </div>
+                     $link = get_sub_field('link');
+                     ?>
+                     <a href="<?php echo $link; ?>">
+                     <div  class="col s12 m4 l4">
+                        <div class="center promo promo-example">
+                            <i class="<?php echo $icon; ?>"></i>
+                            <h5 class="promo-caption"><?php echo $title; ?></h5>
+                            <p class="light center"><?php echo $descript; ?></p>
                         </div>
-                     <?php endwhile; else: ?>
-                    <h1>No se encontraron Articulos</h1>
-                    <?php endif; ?>        
-                   <?php endwhile; else: ?>
-                   <h1>No se encontraron Articulos</h1>
-                   <?php endif; ?>   
+                     </div>
+                     </a>      
+                  <?php endwhile; else: ?>
+                  <h1>No se encontraron Articulos</h1>
+                  <?php endif; ?>   
                </div>
             </div>
         </div>
 <?php endwhile; else: ?>
 <h1>No se encontraron Articulos</h1>
-<?php endif; ?>        
+<?php endif; ?>

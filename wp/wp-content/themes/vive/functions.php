@@ -1,6 +1,7 @@
 <?php  
 //// image /////
 add_theme_support( 'post-thumbnails');
+add_image_size( 'homeBlog"_thumbs', 1184, 666, true );	
 
  //// menu /////
 register_nav_menu('top-bar', __('Primary Menu'));
